@@ -3,16 +3,16 @@ import "./style.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardsData from "./CardData";
-
-
+import { addToCart } from '../redux/features/cartSlice';
+import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 const Home = () => {
     const [cartData, setCartData] = useState(CardsData);
-
-
-
+    const dispatch = useDispatch();
     // add to cart 
     const send = (e) => {
-
+        dispatch(addToCart(e));
+        
     }
     return (
         <>
